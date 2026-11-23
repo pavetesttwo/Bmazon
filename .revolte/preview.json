@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "start": "npm run dev -- --hostname 0.0.0.0 --port 4173",
+  "port": 4173,
+  "install": [
+    {
+      "name": "npm dependencies",
+      "check": "test -x node_modules/.bin/next",
+      "run": "npm ci"
+    }
+  ],
+  "services": [
+    {
+      "name": "PostgreSQL",
+      "check": "pg_isready",
+      "install": "apt-get update && apt-get install -y postgresql",
+      "start": "service postgresql start",
+      "ready": "pg_isready"
+    }
+  ]
+}
