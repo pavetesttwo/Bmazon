@@ -9,13 +9,5 @@
       "run": "npm ci"
     }
   ],
-  "services": [
-    {
-      "name": "PostgreSQL",
-      "check": "pg_isready",
-      "install": "apt-get update && apt-get install -y postgresql",
-      "start": "service postgresql start",
-      "ready": "pg_isready"
-    }
-  ]
+  "services": []
 }
